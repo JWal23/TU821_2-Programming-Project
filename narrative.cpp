@@ -208,6 +208,7 @@ void Narrative::ranAway()
 void Narrative::DoillSequence()
 {
 //Doill sequence here
+cout << "is this working";
 }
 
 char Narrative::typingText(std::string text, int delay)
