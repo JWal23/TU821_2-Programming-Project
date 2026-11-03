@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "-o",
-                "${workspaceFolder}/a.exe",
+                "${workspaceFolder}/game.exe",
                 "${workspaceFolder}/*.cpp",
 
             ],

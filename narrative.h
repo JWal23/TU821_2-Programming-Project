@@ -9,6 +9,8 @@ private:
     void dialogueTwoA();
     void minidialogue();
     void ranAway();
+    void DoillSequence();
+    char typingText(std::string text, int delay);
 public:
     Narrative();
     ~Narrative();

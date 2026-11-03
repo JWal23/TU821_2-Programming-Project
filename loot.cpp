@@ -79,7 +79,7 @@ void Loot::loot_menu(short y)
     if (y == 1)
     {
         char choice;
-        cout << "Loot:\n-(Primary) Sawed-off Shotgun\n-(Secondary) Revolver\n\n Inventory: Primary: " << inventory.primary_weapon << " Secondary: " << inventory.secondary_weapon << " Armour: "<< inventory.armour << "/" << inventory.INV_SLOT <<endl;
+        cout << "Loot:\n-(Secondary) Sawed-off Shotgun\n-(Secondary) Revolver\n\n Inventory: Primary: " << inventory.primary_weapon << " Secondary: " << inventory.secondary_weapon << " Armour: "<< inventory.armour << "/" << inventory.INV_SLOT <<endl;
         cout << "\n\nTake:\n1. Sawed-off Shotgun (S)\n2. Revolver (R)\n3. Exit\n (E)\n";
         cin >> choice;
         choice = tolower(choice); 
