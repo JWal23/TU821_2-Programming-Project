@@ -14,6 +14,7 @@ void Game::ProcInpts()
 {
 //placeholder for input processing, not sure if this will be used in the final version of the game, 
 //but it is here just in case
+
 }
 
 void Game::Update()

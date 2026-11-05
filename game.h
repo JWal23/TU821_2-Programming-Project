@@ -17,7 +17,7 @@ private:
     void ProcInpts();
     void Update();
     void Draw();
-
+    
 
 public:
     Game();
