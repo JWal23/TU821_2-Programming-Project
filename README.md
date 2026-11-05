@@ -10,3 +10,4 @@ Added:
      Intro, basic weaponry and characteristics, some dialogue, intro to bar sequence, areas to branch off.
 
 Not yet completed
+Doill is a git
