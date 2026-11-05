@@ -17,13 +17,14 @@ private:
     int new_item_num;
     Inventory inventory;
     void check_inventory(const GunsNArmour& item);
+     void chest_menu(short y); // 1 = chest 1 (starter chest), 2 = chest 2, 3 = chest 3...
 
 
 public:
     Loot();
     ~Loot();
-    Loot(string x);
+    Loot(string x, int y); // input type of looting menu, and what level its at eg chest 1, boss 2 etc. 
 
     int items[3] = {0,0,0}; // 0 = empty, 1 = revolver, 2 = sawed-off shotgun
-    void loot_menu(short y); // 1 = chest 1 (starter chest), 2 = chest 2, 3 = chest 3...
+
 };

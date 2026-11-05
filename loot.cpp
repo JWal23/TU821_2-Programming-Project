@@ -66,15 +66,22 @@ Loot::~Loot()
 
 }
 
-Loot::Loot(string x)
+Loot::Loot(string x, int y)
 {  
-    if (x == "Ch1") // chest 1
+    if (x == "Chest") // Loot menu for chests
     {
-        loot_menu(1); // first loot menu
+        if (y == 1) // Loot menu for chest 1
+        {
+            chest_menu(1); // first loot menu
+        }
+        else if (y == 2) // Loot menu for chest 2 (just a placeholder for now, can be changed later)
+        {
+         //   loot_menu(2);  // (placeholder for now) second loot menu
+        }
     }
 }
 
-void Loot::loot_menu(short y)
+void Loot::chest_menu(short y)
 {
     if (y == 1)
     {

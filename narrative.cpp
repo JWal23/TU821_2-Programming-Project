@@ -56,7 +56,7 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
 
     if(choice == 'o')
     {
-        Loot loot("Ch1"); // chest 1 (starter chest) 
+        Loot loot("Chest", 1); // chest 1 (starter chest) 
     }
     else if (choice == 'e')
     {
@@ -201,7 +201,7 @@ void Narrative::dialogueTwoA()
 
 void Narrative::ranAway()
 {
-    cout << "You flee into the crowd and disappear before the cowboy can catch up.\n";
+    cout << typingText("You flee into the crowd and disappear before the cowboy can catch up.",10)<<"\n";
     cont_clr();
 }
 
