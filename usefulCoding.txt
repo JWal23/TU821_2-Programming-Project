@@ -1,0 +1,35 @@
+use: 
+- #include <conio.h> for _getch()
+first: check for key == 0 and key == 224
+then:
+- 72 = up
+- 80 = down
+- 77 = right
+- 75 = left
+
+
+
+
+Basic code to check for an input without enter key:
+```
+#include <iostream>
+#include <conio.h>
+#include <string>
+
+int main ()
+{
+    std::cout <<"press any key";
+    while (true) {
+    int key = _getch();
+    if (key == 'h' || key == 'H') {
+        std::cout << "Hello World\n";}
+    else if (key == 'q' || key == 'Q') {
+    break;
+    } else {
+        std::cout << "You pressed: " << key << "\n";
+    }
+    
+    return 0;
+    }
+}
+```
