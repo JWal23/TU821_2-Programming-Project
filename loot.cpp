@@ -5,24 +5,24 @@
 #include "inventory.h"
 using namespace std;
 
-void Loot::check_inventory(const GunsNArmour& item)
+void Loot::check_inventory(GunsNArmour item)
 {
     int slot;
-    string* equippedItem;
+    string equippedItem;
 
     switch (item.tier)
     {
         case ItemTier::Primary:
             slot = 0;
-            equippedItem = &inventory.primary_weapon;
+            equippedItem = inventory.primary_weapon;
             break;
         case ItemTier::Secondary:
             slot = 1;
-            equippedItem = &inventory.secondary_weapon;
+            equippedItem = inventory.secondary_weapon;
             break;
         case ItemTier::Armour:
             slot = 2;
-            equippedItem = &inventory.armour;
+            equippedItem = inventory.armour;
             break;
         default:
             return;
@@ -30,7 +30,7 @@ void Loot::check_inventory(const GunsNArmour& item)
 
     if (items[slot] != 0)
     {
-        cout << "You have -" << *equippedItem << "- in your inventory\n";
+        cout << "You have -" << equippedItem << "- in your inventory\n";
         cout << "Would you like to swap it for -" << new_item << "-?\n";
         cout << "Yes (y)\nNo (n)\n";
 
@@ -40,11 +40,11 @@ void Loot::check_inventory(const GunsNArmour& item)
 
         if (choice != 'y')
         {
-            cout << "You have kept your -" << *equippedItem << "-\n";
+            cout << "You have kept your -" << equippedItem << "-\n";
             return;
         }
 
-        cout << "You have swapped your -" << *equippedItem
+        cout << "You have swapped your -" << equippedItem
              << "- for -" << new_item << "-\n";
     }
     else
@@ -53,7 +53,20 @@ void Loot::check_inventory(const GunsNArmour& item)
     }
 
     items[slot] = new_item_num;
-    *equippedItem = new_item;
+    switch (item.tier)
+    {
+        case ItemTier::Primary:
+            inventory.primary_weapon = new_item;
+            break;
+        case ItemTier::Secondary:
+            inventory.secondary_weapon = new_item;
+            break;
+        case ItemTier::Armour:
+            inventory.armour = new_item;
+            break;
+        default:
+            return;
+    }
 }
 
 Loot::Loot()

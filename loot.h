@@ -16,7 +16,7 @@ private:
     string new_item;
     int new_item_num;
     Inventory inventory;
-    void check_inventory(const GunsNArmour& item);
+    void check_inventory(GunsNArmour item);
      void chest_menu(short y); // 1 = chest 1 (starter chest), 2 = chest 2, 3 = chest 3...
 
 
