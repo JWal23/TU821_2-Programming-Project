@@ -5,6 +5,7 @@
 #include "inventory.h"
 using namespace std;
 
+//oc
 void Loot::check_inventory(GunsNArmour item)
 {
     int slot;

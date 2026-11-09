@@ -3,11 +3,15 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
+#include <conio.h>
 
 #include "inventory.h"
 #include "narrative.h"
 #include "loot.h"
+#include "Bar.h"
+#include "gunsNArmour.h"
 
+//oc
 class Game{
 private:
     bool g_isRunning;

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "game.h"
+
+//oc
 enum class ItemTier {
     Primary,
     Secondary,

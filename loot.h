@@ -8,6 +8,7 @@
 
 using namespace std;
 
+//oc
 class Loot
 {
 private:
