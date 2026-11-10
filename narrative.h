@@ -1,6 +1,6 @@
 #pragma once
 
-#include "game.h"
+#include <iostream>
 
 class Narrative{
 private:
@@ -18,9 +18,6 @@ public:
     void intro();
     void cont_clr();
     
-<<<<<<< HEAD
-    
 
-=======
->>>>>>> upstream/master
+
 };
