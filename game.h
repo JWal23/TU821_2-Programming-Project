@@ -11,7 +11,14 @@
 #include "AtkBar.h"
 #include "gunsNArmour.h"
 
-//oc
+enum GameState{   
+    MENU,
+    Play,
+    Settings,
+    Instructions,
+    Exit,
+};
+
 class Game{
 private:
     bool g_isRunning;
@@ -21,7 +28,8 @@ private:
     void ProcInpts();
     void Update();
     void Draw();
-    
+    GameState currentState;
+
 
 public:
     Game();
@@ -32,3 +40,4 @@ public:
 
 
 };
+

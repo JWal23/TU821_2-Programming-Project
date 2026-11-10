@@ -23,6 +23,11 @@ public:
     }
 };  
 
+class Cutlas : public GunsNArmour{
+public:
+    Cutlas() : GunsNArmour{ItemTier::Secondary, 10, 0, 0, 0} {}
+};
+
 class Revolver : public GunsNArmour {
 public:
     Revolver()

@@ -1,8 +1,11 @@
 #include <iostream>
+#include <windows.h>
 
 #include "narrative.h"
 #include "loot.h"
+
 using namespace std;
+
 Narrative::Narrative()
 {
 
@@ -20,7 +23,8 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
     //must add input checking to make sure the user inputs a valid option, if not it will ask them to try again.
     
     //Add start menu here, with options to start a new game, load a game, settings etc.
-    // void startMenu(); 
+    // void startMenu();
+    system("cls"); 
     cout << typingText("You wake up....", 5);
     cont_clr();
     cout << typingText("It's scortching hot outside", 5);
@@ -95,8 +99,8 @@ void Narrative::outside_house()
             system("cls");
             cout << "You have chosen to run away\n";
             cont_clr();    
-            //Doill or Jack you can maybe add your sequences here
-            break;
+            ranAway();
+            return;
     }
     
     cout << "You have entered the town, and see the big red wooden building the cowboy was talking about\n";
@@ -168,7 +172,7 @@ void Narrative::minidialogue()
             cout << "You have chosen to run away\n";
             cont_clr();    
             //Doill or Jack you can maybe add your sequences here
-            DoillSequence();
+            
             ranAway();
             break;
     }
@@ -210,6 +214,7 @@ void Narrative::DoillSequence()
 {
 //Doill sequence here
 cout << "is this working\n";
+cout << "is it stillworking ";
 }
 
 char Narrative::typingText(std::string text, int delay)
