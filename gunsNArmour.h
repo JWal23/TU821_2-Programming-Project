@@ -42,9 +42,6 @@ public:
 
 class SawedOff : public GunsNArmour {
 public:
-<<<<<<< HEAD
-    SawedOff() : GunsNArmour{ItemTier::Secondary, 5, 2, 0, 0} {}
-=======
     SawedOff()
     {
         tier = ItemTier::Secondary;
@@ -53,7 +50,6 @@ public:
         bonusHP = 0;
         extraStorage = 0;
     }
->>>>>>> upstream/master
 };
 
 class leatherJacket : public GunsNArmour {
