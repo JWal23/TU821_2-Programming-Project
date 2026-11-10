@@ -8,7 +8,7 @@
 #include "inventory.h"
 #include "narrative.h"
 #include "loot.h"
-#include "Bar.h"
+#include "AtkBar.h"
 #include "gunsNArmour.h"
 
 //oc

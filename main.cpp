@@ -1,7 +1,6 @@
 #include <windows.h>
 
 #include "game.h"
-#include "inventory.h"
 
 // For delay: sleep(time_in_milli);
 
@@ -9,6 +8,5 @@
 int main(){
     Game game;  //initialize game object
     game.Run(); //begin game loop (go to game.cpp to see the game loop)
-    //hello
 return 0;
 }

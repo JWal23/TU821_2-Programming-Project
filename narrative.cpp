@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "game.h"
 #include "narrative.h"
+#include "loot.h"
 using namespace std;
 Narrative::Narrative()
 {
@@ -46,7 +46,7 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
         choice = tolower(choice);  
         if (choice != 'o' && choice != 'e')
             {
-                cerr << typingText("Invalid input please try again\n",5);
+                cerr << typingText("Please enter an shown input\n",1);
                 cont_clr();
             } //if the user inputs anything other than 'o' or 'e', it will display an error message 
               //and ask them to try again
@@ -188,6 +188,7 @@ void Narrative::dialogueTwoA()
             cout << "You have chosen to go to the bar\n";
             cont_clr();
             //Bar sequence here
+
             break;
         case 'b':
             system("cls");

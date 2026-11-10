@@ -1,17 +1,11 @@
 #pragma once
 
-#include "game.h"
-
+#include "tiers.h"
 //oc
-enum class ItemTier {
-    Primary,
-    Secondary,
-    Armour
-};
 
 class GunsNArmour {
 public:
-    ItemTier tier = ItemTier::Primary;
+    ItemTier tier;
     int damage = 0;
     int ammo = 0;
     int bonusHP = 0;
@@ -45,7 +39,7 @@ class SawedOff : public GunsNArmour {
 public:
     SawedOff()
     {
-        tier = ItemTier::Primary;
+        tier = ItemTier::Secondary;
         damage = 5;
         ammo = 2;
         bonusHP = 0;

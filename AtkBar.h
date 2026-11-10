@@ -3,7 +3,7 @@
 #include "game.h"
 
 //oc
-class Bar
+class AtkBar
 {
 private:
     int length;
@@ -27,8 +27,10 @@ private:
 
 
 public:
-    Bar();
-    ~Bar();
+    AtkBar
+();
+    ~AtkBar
+();
 
     int firstAttackPoint, secondAttackPoint;
 

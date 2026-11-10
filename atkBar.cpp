@@ -1,7 +1,7 @@
-#include "Bar.h"
+#include "game.h"
 
 //oc
-int Bar::initAttkBar()
+int AtkBar::initAttkBar()
 {
     system("pause");
     getBarLength();
@@ -104,7 +104,7 @@ int Bar::initAttkBar()
     return 0;
 }
 
-void Bar::createBar(HANDLE handle)
+void AtkBar::createBar(HANDLE handle)
 {
 COORD pos;
 
@@ -136,14 +136,14 @@ COORD pos;
     }
 }
 
-void Bar::randAttackArea()
+void AtkBar::randAttackArea()
 {
     srand(time(0));
     firstAttackPoint = rand() %7;
     secondAttackPoint = firstAttackPoint + 3;
 }
 
-Bar::Bar()
+AtkBar::AtkBar()
 {
     setBarLength(10);
     setBlankSpots('_');
@@ -156,6 +156,6 @@ Bar::Bar()
     setBarSpeed(60);
 }
 
-Bar::~Bar()
+AtkBar::~AtkBar()
 {
 }
