@@ -84,7 +84,6 @@ void Game::Draw()
     {
         cout << "****MAIN MENU****" << endl;
         cout << "(1) Play " << endl;
-        Narrative cont_clr(); // im trying to make it so that after pressing play, the game starts in a new page
         cout << "(2) Instructions" << endl;
         cout << "(3) Settings" << endl;
         cout << "(4) Exit" << endl;
