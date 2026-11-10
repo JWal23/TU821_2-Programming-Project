@@ -8,6 +8,14 @@
 #include "narrative.h"
 #include "loot.h"
 
+enum GameState{   
+    MENU,
+    Play,
+    Settings,
+    Instructions,
+    Exit,
+};
+
 class Game{
 private:
     bool g_isRunning;
@@ -17,6 +25,7 @@ private:
     void ProcInpts();
     void Update();
     void Draw();
+    GameState currentState;
 
 
 public:
@@ -28,3 +37,4 @@ public:
 
 
 };
+

@@ -22,6 +22,11 @@ public:
           extraStorage{extraStorageValue} {} // Initialize extraStorage in the constructor
 };  
 
+class Cutlas : public GunsNArmour{
+public:
+    Cutlas() : GunsNArmour{ItemTier::Secondary, 10, 0, 0, 0} {}
+};
+
 class Revolver : public GunsNArmour {
 public:
     Revolver() : GunsNArmour{ItemTier::Secondary, 2, 6, 0, 0} {}
@@ -29,7 +34,7 @@ public:
 
 class SawedOff : public GunsNArmour {
 public:
-    SawedOff() : GunsNArmour{ItemTier::Primary, 5, 2, 0, 0} {}
+    SawedOff() : GunsNArmour{ItemTier::Secondary, 5, 2, 0, 0} {}
 };
 
 class leatherJacket : public GunsNArmour {

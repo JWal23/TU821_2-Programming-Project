@@ -95,8 +95,8 @@ void Narrative::outside_house()
             system("cls");
             cout << "You have chosen to run away\n";
             cont_clr();    
-            //Doill or Jack you can maybe add your sequences here
-            break;
+            ranAway();
+            return;
     }
     
     cout << "You have entered the town, and see the big red wooden building the cowboy was talking about\n";
@@ -168,7 +168,7 @@ void Narrative::minidialogue()
             cout << "You have chosen to run away\n";
             cont_clr();    
             //Doill or Jack you can maybe add your sequences here
-            DoillSequence();
+            
             ranAway();
             break;
     }
@@ -201,7 +201,7 @@ void Narrative::dialogueTwoA()
 
 void Narrative::ranAway()
 {
-    cout << "You flee into the crowd and disappear before the cowboy can catch up.\n";
+    cout << "You flee.\n";
     cont_clr();
 }
 
@@ -209,7 +209,7 @@ void Narrative::DoillSequence()
 {
 //Doill sequence here
 cout << "is this working\n";
-cout << "is it stillworkinhg ";
+cout << "is it stillworking ";
 }
 
 char Narrative::typingText(std::string text, int delay)
