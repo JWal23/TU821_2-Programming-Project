@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "game.h"
 #include "narrative.h"
+#include "loot.h"
 using namespace std;
 Narrative::Narrative()
 {
@@ -21,11 +21,11 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
     
     //Add start menu here, with options to start a new game, load a game, settings etc.
     // void startMenu(); 
-    cout << typingText("You wake up....", 50);
+    cout << typingText("You wake up....", 5);
     cont_clr();
-    cout << typingText("It's scortching hot outside", 50);
+    cout << typingText("It's scortching hot outside", 5);
     cont_clr();
-    cout << typingText("That was a weird dream", 50); 
+    cout << typingText("That was a weird dream", 5); 
     //this will lead on to the fact they have gear left on the dresser from previus run
     cont_clr();
     
@@ -38,15 +38,15 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
      
     
     do{
-        cout << typingText("You stand up and walk over to your storage chest...",50)<< endl;
-        cout << typingText("Would you like to open it, or exit through the front door?",50) << endl;
-        cout << typingText("Open (O)",5) << "\n"<< typingText("\nExit(E)\n",5)<< endl; //First dialogue option
+        cout << typingText("You stand up and walk over to your storage chest...",5)<< endl;
+        cout << typingText("Would you like to open it, or exit through the front door?",5) << endl;
+        cout << typingText("Open (O)",1) << "\n"<< typingText("\nExit(E)\n",1)<< endl; //First dialogue option
         cin >> choice;
 
         choice = tolower(choice);  
         if (choice != 'o' && choice != 'e')
             {
-                cerr << typingText("Invalid input please try again\n",50);
+                cerr << typingText("Please enter an shown input\n",1);
                 cont_clr();
             } //if the user inputs anything other than 'o' or 'e', it will display an error message 
               //and ask them to try again
@@ -56,11 +56,11 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
 
     if(choice == 'o')
     {
-        Loot loot("Ch1"); // chest 1 (starter chest) 
+        Loot loot("Chest", 1); // chest 1 (starter chest) 
     }
     else if (choice == 'e')
     {
-        cout << typingText("You have exited through the front door\n",50);
+        cout << typingText("You have exited through the front door\n",5);
          // this skips the chest squence and goes straight outside with no gear.
         cont_clr();
     }
@@ -71,7 +71,7 @@ void Narrative::intro() //intro sequence of the game, this is the first part of 
 void Narrative::outside_house()
 {   
     char choice;
-    cout << typingText("You have exited the house and are now in the desert\n",50);
+    cout << typingText("You have exited the house and are now in the desert\n",5);
     cont_clr();
     cout << "You see a small town in the distance, you walk towards it\n";
     cont_clr();
@@ -188,6 +188,7 @@ void Narrative::dialogueTwoA()
             cout << "You have chosen to go to the bar\n";
             cont_clr();
             //Bar sequence here
+
             break;
         case 'b':
             system("cls");
@@ -201,7 +202,11 @@ void Narrative::dialogueTwoA()
 
 void Narrative::ranAway()
 {
+<<<<<<< HEAD
     cout << "You flee.\n";
+=======
+    cout << typingText("You flee into the crowd and disappear before the cowboy can catch up.",10)<<"\n";
+>>>>>>> upstream/master
     cont_clr();
 }
 

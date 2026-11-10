@@ -1,7 +1,11 @@
 #include "game.h"
+<<<<<<< HEAD
 #include "narrative.h"
 #include <iostream>
 #include <limits>
+=======
+
+>>>>>>> upstream/master
 
 //if you wanna look at the headers for each section
 //look at the name of the .cpp, and find its corresponding .h file, 
@@ -14,6 +18,7 @@ bool Game::Initl()
 
 void Game::ProcInpts()
 {
+<<<<<<< HEAD
     // this sequence of code: if your in the settings or instructions,
     // press any key (character) to go back to the main menu
     
@@ -66,6 +71,10 @@ void Game::ProcInpts()
        
     }
 
+=======
+//placeholder for input processing, not sure if this will be used in the final version of the game, 
+//but it is here just in case
+>>>>>>> upstream/master
 
 }
 

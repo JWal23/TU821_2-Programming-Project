@@ -2,35 +2,54 @@
 #include <string>
 
 #include "loot.h"
-#include "inventory.h"
+
+
 using namespace std;
 
-void Loot::check_inventory(const GunsNArmour& item)
+//oc
+
+Loot::Loot()
+{}
+
+Loot::~Loot()
+{}
+
+Loot::Loot(string x, int y)
+{  
+    if (x == "Chest") // Loot menu for chests
+    {
+        if (y == 1) // Loot menu for chest 1
+        {
+            chest_menu(1); // first loot menu
+        }
+        else if (y == 2) // Loot menu for chest 2 (just a placeholder for now, can be changed later)
+        {
+         //   loot_menu(2);  // (placeholder for now) second loot menu
+        }
+    }
+}
+void Loot::check_inventory(ItemTier tier)
 {
     int slot;
-    string* equippedItem;
 
-    switch (item.tier)
+    switch (tier)
     {
         case ItemTier::Primary:
             slot = 0;
-            equippedItem = &inventory.primary_weapon;
             break;
         case ItemTier::Secondary:
             slot = 1;
-            equippedItem = &inventory.secondary_weapon;
             break;
         case ItemTier::Armour:
             slot = 2;
-            equippedItem = &inventory.armour;
             break;
         default:
             return;
     }
 
-    if (items[slot] != 0)
+    if (items[slot] != "Empty")
     {
-        cout << "You have -" << *equippedItem << "- in your inventory\n";
+        cout << "You have -" << items[slot] << "- in your inventory\n";
         cout << "Would you like to swap it for -" << new_item << "-?\n";
         cout << "Yes (y)\nNo (n)\n";
 
@@ -40,11 +59,11 @@ void Loot::check_inventory(const GunsNArmour& item)
 
         if (choice != 'y')
         {
-            cout << "You have kept your -" << *equippedItem << "-\n";
+            cout << "You have kept your -" << items[slot] << "-\n";
             return;
         }
 
-        cout << "You have swapped your -" << *equippedItem
+        cout << "You have swapped your -" << items[slot]
              << "- for -" << new_item << "-\n";
     }
     else
@@ -52,50 +71,31 @@ void Loot::check_inventory(const GunsNArmour& item)
         cout << "You have taken -" << new_item << "-\n";
     }
 
-    items[slot] = new_item_num;
-    *equippedItem = new_item;
+    items[slot] = new_item;
 }
 
-Loot::Loot()
-{
-
-}
-
-Loot::~Loot()
-{
-
-}
-
-Loot::Loot(string x)
-{  
-    if (x == "Ch1") // chest 1
-    {
-        loot_menu(1); // first loot menu
-    }
-}
-
-void Loot::loot_menu(short y)
+void Loot::chest_menu(short y) 
 {
     if (y == 1)
     {
         char choice;
-        cout << "Loot:\n-(Secondary) Sawed-off Shotgun\n-(Secondary) Revolver\n\n Inventory: Primary: " << inventory.primary_weapon << " Secondary: " << inventory.secondary_weapon << " Armour: "<< inventory.armour << "/" << inventory.INV_SLOT <<endl;
+        cout << "Loot:\n" << "-(Secondary) Sawed-off Shotgun\n-(Secondary) Revolver\n\n Inventory:\nPrimary: " << items[0] << "\nSecondary: " << items[1] << "\nArmour: "<< items[2] <<endl;
         cout << "\n\nTake:\n1. Sawed-off Shotgun (S)\n2. Revolver (R)\n3. Exit\n (E)\n";
         cin >> choice;
         choice = tolower(choice); 
         if (choice == 's')
         {
-            SawedOff item;
+            SawedOff shotty;
             new_item = "Sawed-off Shotgun";
             new_item_num = 2;
-            check_inventory(item);
+            check_inventory(shotty.tier);
         }
         else if (choice == 'r')
         {
-            Revolver item;
+            Revolver revolv;
             new_item = "Revolver";
             new_item_num = 1;
-            check_inventory(item);
+            check_inventory(revolv.tier);
         }
         else if (choice == 'e')
         {

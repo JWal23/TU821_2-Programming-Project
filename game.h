@@ -3,11 +3,15 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
+#include <conio.h>
 
 #include "inventory.h"
 #include "narrative.h"
 #include "loot.h"
+#include "AtkBar.h"
+#include "gunsNArmour.h"
 
+<<<<<<< HEAD
 enum GameState{   
     MENU,
     Play,
@@ -16,6 +20,9 @@ enum GameState{
     Exit,
 };
 
+=======
+//oc
+>>>>>>> upstream/master
 class Game{
 private:
     bool g_isRunning;
@@ -25,8 +32,12 @@ private:
     void ProcInpts();
     void Update();
     void Draw();
+<<<<<<< HEAD
     GameState currentState;
 
+=======
+    
+>>>>>>> upstream/master
 
 public:
     Game();
