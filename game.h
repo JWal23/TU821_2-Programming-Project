@@ -5,11 +5,9 @@
 #include <windows.h>
 #include <conio.h>
 
-#include "inventory.h"
 #include "narrative.h"
 #include "loot.h"
 #include "AtkBar.h"
-#include "gunsNArmour.h"
 
 enum GameState{   
     MENU,
@@ -17,6 +15,7 @@ enum GameState{
     Settings,
     Instructions,
     Exit,
+    DEVSKIPPER,
 };
 
 class Game{
@@ -36,7 +35,6 @@ public:
     ~Game();
 
     void Run();
-
 
 
 };
