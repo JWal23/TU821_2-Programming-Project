@@ -1,9 +1,9 @@
-#include "game.h"
+#include "AtkBar.h"
 
 //oc
 int AtkBar::initAttkBar()
 {
-    system("pause");
+    int rtn = 0;
     getBarLength();
     getBlankSpots();
     getCursor();
@@ -28,7 +28,7 @@ int AtkBar::initAttkBar()
     int dir = -1;
 
 //print cursor going right
-    for (int j = 0; j < getNumRuns(); j++)
+    while(numberRuns > 0)
     {    
     if(dir == 1) 
     {
@@ -44,19 +44,22 @@ int AtkBar::initAttkBar()
                  if((key == '\r'|| key == ' ') && (pos.X == (firstAttackPoint)+1 || pos.X == (firstAttackPoint)+2))
                  {
                     system("cls");
-                    std::cout<<"YOU CLICKED CORRECT!\n";
-                    system("pause");
-                    return 0;
-                }
-                else if ((key == '\r'|| key == ' ') && (pos.X != (firstAttackPoint)+1 && pos.X != (firstAttackPoint)+2))
-                {
-                    system("cls");
                     setBarSpeed(getBarSpeed()-10);
-                    std::cout << "MISSED!\nSpeed Increased!\n";
+                    numberRuns = numberRuns - 1;
+                    std::cout << "HIT!\n" << numberRuns <<" more hits until you deal damage.";
                     system("pause");
                     system("cls");
                     createBar(handle);
                     continue;
+                }
+                else if ((key == '\r'|| key == ' ') && (pos.X != (firstAttackPoint)+1 && pos.X != (firstAttackPoint)+2))
+                {
+                    system("cls");
+                    std::cout << "MISSED!\nTurn forfited.\n";
+                    system("pause");
+                    system("cls");
+                    rtn = 0;
+                    return rtn;
                 }
             }
             SetConsoleCursorPosition(handle, pos);
@@ -80,19 +83,23 @@ int AtkBar::initAttkBar()
                  if((key == '\r'|| key == ' ') && (pos.X == (firstAttackPoint)+1 || pos.X == (firstAttackPoint)+2))
                  {
                     system("cls");
-                    std::cout<<"YOU CLICKED CORRECT!\n";
-                    system("pause");
-                    return 0;
-                        }
-                else if ((key == '\r'|| key == ' ') && (pos.X != (firstAttackPoint)+1 || pos.X != (firstAttackPoint)+2))
-                {
-                    system("cls");
                     setBarSpeed(getBarSpeed()-10);
-                    std::cout << "MISSED!\nSpeed Increased!\n";
+                    numberRuns = numberRuns - 1;
+                    std::cout << "HIT!\n" << numberRuns <<" more hits until you deal damage.";
                     system("pause");
                     system("cls");
                     createBar(handle);
                     continue;
+                        }
+                else if ((key == '\r'|| key == ' ') && (pos.X != (firstAttackPoint)+1 && pos.X != (firstAttackPoint)+2))
+                {
+                    system("cls");
+                    setBarSpeed(getBarSpeed()-10);
+                    std::cout << "MISSED!\nTurn forfitted.\n";
+                    system("pause");
+                    system("cls");
+                    rtn = 0;
+                    return rtn;
                 }
             }
             SetConsoleCursorPosition(handle, pos);
@@ -101,7 +108,8 @@ int AtkBar::initAttkBar()
         dir = 1;
         }
     }
-    return 0;
+
+    return 1;
 }
 
 void AtkBar::createBar(HANDLE handle)
@@ -116,7 +124,6 @@ COORD pos;
     SetConsoleCursorPosition(handle, pos);
     std::cout << getBarCasingEnd();
 
-//generate random position for attack area [Will make this its own function later]
     randAttackArea();
     pos.X = getAttackPoint1();
     pos.Y = getY() + 1;
@@ -138,8 +145,7 @@ COORD pos;
 
 void AtkBar::randAttackArea()
 {
-    srand(time(0));
-    firstAttackPoint = rand() %7;
+    firstAttackPoint = rand() %6 + 1;
     secondAttackPoint = firstAttackPoint + 3;
 }
 
@@ -152,7 +158,7 @@ AtkBar::AtkBar()
     setBarCasingEnd(']');
     setAttackChar('^');
     setXY(1,1);
-    setNumRuns(100);
+    setNumRuns(1);
     setBarSpeed(60);
 }
 

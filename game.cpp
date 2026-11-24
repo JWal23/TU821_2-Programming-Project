@@ -1,12 +1,16 @@
-#include "game.h"
-#include "narrative.h"
+#pragma once
+
 #include <iostream>
 #include <limits>
 
+#include "game.h"
+#include "narrative.h"
+#include "Player.h"
+#include "Enemy.h"
 using namespace std;
-//if you wanna look at the headers for each section
-//look at the name of the .cpp, and find its corresponding .h file, 
-//they are in the same folder as the .cpp files
+// if you wanna look at the headers for each section
+// look at the name of the .cpp, and find its corresponding .h file,
+// they are in the same folder as the .cpp files
 
 bool Game::Initl()
 {
@@ -17,7 +21,7 @@ void Game::ProcInpts()
 {
     // this sequence of code: if your in the settings or instructions,
     // press any key (character) to go back to the main menu
-    
+
     if (currentState == Instructions || currentState == Settings)
     {
         char choice;
@@ -29,9 +33,8 @@ void Game::ProcInpts()
         {
             g_isRunning = false; // safely shuts down the game if something goes wrong
         }
-        return; 
+        return;
     }
-
 
     if (currentState == MENU)
     {
@@ -39,48 +42,48 @@ void Game::ProcInpts()
         int choice = 0;
         if (!(cin >> choice))
         {
-            cin.clear(); // reset cin
+            cin.clear();                                         // reset cin
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear previous inputs
             cout << "\nInvalid input: Please choose 1, 2, 3 or 4 " << endl;
             return; // goes back to the start of the loop
         }
 
-        switch(choice)
+        switch (choice)
         {
-            case 1:
-                currentState = Play;
-                break;
-            case 2:
-                currentState = Instructions;
-                break;
-            case 3:
-                currentState = Settings;
-                break;
-            case 4:
-                currentState = Exit;
-                g_isRunning = false;
-                break;
-            default: // like an "else" handles all invalid NUMBER inputs.
-                cout << "\nInvalid choice: Please choose 1, 2, 3 or 4";
-                break;
+        case 1:
+            currentState = Play;
+            break;
+        case 2:
+            currentState = Instructions;
+            break;
+        case 3:
+            currentState = Settings;
+            break;
+        case 4:
+            currentState = Exit;
+            g_isRunning = false;
+            break;
+        case 0:
+            currentState = DEVSKIPPER;
+            break;
+        default: // like an "else" handles all invalid NUMBER inputs.
+            cout << "\nInvalid choice: Please choose 1, 2, 3 or 4";
+            break;
         }
-       
     }
-
-
 }
 
 void Game::Update()
 {
-//placeholder for updating game state, not sure if this will be used in the final version of the game,
-//but it is here just in case
+    // placeholder for updating game state, not sure if this will be used in the final version of the game,
+    // but it is here just in case
 }
 
 void Game::Draw()
 {
-    //draws the game, 
+    // draws the game,
     //(its just a text based game so it will be mostly cout statements ie from narative.cpp)
-    //GAME MENU
+    // GAME MENU
     if (currentState == MENU)
     {
         cout << "****MAIN MENU****" << endl;
@@ -88,31 +91,37 @@ void Game::Draw()
         cout << "(2) Instructions" << endl;
         cout << "(3) Settings" << endl;
         cout << "(4) Exit" << endl;
+        // use 0 to skip to a developer part
     }
-    else if (currentState == Play) // once character selected?? 
+    else if (currentState == Play) // once character selected??
     {
-    Narrative narrate;
-    narrate.Narrative::intro(); //go to narrative.cpp to see the intro sequence, 
-                                //which is the first part of the game
-    } 
+        Inventory inventory;
+        Narrative narrate;
+    }
     else if (currentState == Instructions)
     {
         cout << "****INSTRUCTIONS****" << endl;
         cout << "This is a text based adventure game where you are given different options to choose from." << endl;
         cout << "Press the key thats presented beside the option you want to chose and press Enter to proceed. " << endl;
         cout << "To return to main menu, press any key and Enter. " << endl;
-        //placeholder
+        // placeholder
     }
     else if (currentState == Settings)
     {
         cout << "Settings are not available yet." << endl;
         cout << "Press any key and Enter to return to the menu." << endl;
-        //placeholder
+        // placeholder
+    }
+    else if (currentState == DEVSKIPPER)
+    {
+        // put place to skip to with developer mode here
+        //  inv.items[1] = "Revolver";
+        Enemy badguyTest(4, "Paul");
     }
 }
 
 Game::Game()
-    :   g_isRunning{true} //initialize game state to running by setting g_isRunning to true
+    : g_isRunning{true} // initialize game state to running by setting g_isRunning to true
 {
     currentState = MENU; // starts game at the menu
 }
@@ -123,7 +132,7 @@ Game::~Game()
 
 void Game::Run()
 {
-    if (!Initl()) //if the game fails to initialize, return and end the game
+    if (!Initl()) // if the game fails to initialize, return and end the game
     {
         return;
     }
@@ -132,7 +141,7 @@ void Game::Run()
     {
         Draw();
 
-        if (currentState == Play)
+        if (currentState == Play || currentState == DEVSKIPPER)
         {
             currentState = MENU;
             continue;

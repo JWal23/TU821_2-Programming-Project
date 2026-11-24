@@ -1,7 +1,7 @@
 #pragma once
 
-enum class ItemTier {
-    Primary,
-    Secondary,
+enum class ItemTier 
+{
+    Gun,
     Armour
 };
