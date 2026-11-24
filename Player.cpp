@@ -22,5 +22,5 @@ Inventory::~Inventory()
 
 GunsNArmour *Inventory::getItem(int index)
 {
-    return &allGunsNArmour[index];
+    return allGunsNArmour[index];
 }
