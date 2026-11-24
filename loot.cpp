@@ -47,7 +47,7 @@ void Loot::chest_menu(short y, Inventory& inv)
         switch(choice)
         {
             case '1':
-            inv.items
+            inv.items;
             break;
 
             case '2':

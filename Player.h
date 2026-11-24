@@ -9,11 +9,10 @@ using namespace std;
 class Player
 {
 private:
-Inventory Inventory;
+    Inventory Inventory;
 
 public:
-string holding[2] {"Empty","Empty"};
-
+    string holding[2]{"Empty", "Empty"};
 };
 
 class GunsNArmour
@@ -34,24 +33,22 @@ public:
         ammo = ammoValue;
         bonusHp = bonusHPValue;
     }
-    int getDamage(){return damage;}
-    int getAmmo(){return ammo;}
-    int getBonusHp(){return bonusHp;}
-    string getName(){return gunName;}
-
+    int getDamage() { return damage; }
+    int getAmmo() { return ammo; }
+    int getBonusHp() { return bonusHp; }
+    string getName() { return gunName; }
 };
 
 class Inventory
 {
 private:
-GunsNArmour** allGunsNArmour;
-int counter;
+    GunsNArmour **allGunsNArmour;
+    int counter;
 
 public:
     Inventory();
     ~Inventory();
 
-    GunsNArmour items[2];
-    GunsNArmour* getItem(int index); //add definition
-
+    GunsNArmour *items[2];
+    GunsNArmour *getItem(int index); // add definition
 };

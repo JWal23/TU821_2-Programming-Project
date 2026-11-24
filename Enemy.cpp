@@ -48,7 +48,6 @@ int Enemy::turnBasedCombat()
                 }
                 else
                 {
-                    
                     system("cls");
                     nar.typingText("Shooting your \n",1);
                     //gun name here;
